@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Zoomdata Dev Zone',
   },
   plugins: ['gatsby-plugin-react-helmet'],
 };
