@@ -1,41 +1,139 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import Header from '../components/Header';
-import './index.css';
-import favicon from '../assets/images/favicon.ico';
+import Navigation from '../components/navigation';
+import MobileNavigation from '../components/navigation-mobile';
+import SidebarBody from '../components/sidebar-body';
+import tutorialSidebar from '../pages/docs/tutorial-links.yml';
+import docsSidebar from '../pages/docs/doc-links.yaml';
+import { rhythm, scale } from '../utils/typography';
+import presets, { colors } from '../utils/presets';
+import hex2rgba from 'hex2rgba';
+import '../css/prism-coy.css';
 
-const TemplateWrapper = ({ children }) => (
-  <div>
-    <Helmet
-      title="Zoomdata Dev Zone"
-      meta={[
-        {
-          name: 'description',
-          content:
-            "The Zoomdata Developer Zone is your one-stop shop for extending Zoomdata's functionality and embedding it in your own applications.",
-        },
-        { name: 'keywords', content: 'developers, zoomdata' },
-      ]}
-      link={[{ rel: 'shortcut icon', href: favicon }]}
-    />
-    <Header />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
-      {children()}
-    </div>
-  </div>
-);
+// Import Futura PT typeface
+import '../fonts/Webfonts/futurapt_book_macroman/stylesheet.css';
+import '../fonts/Webfonts/futurapt_bookitalic_macroman/stylesheet.css';
+import '../fonts/Webfonts/futurapt_demi_macroman/stylesheet.css';
+import '../fonts/Webfonts/futurapt_demiitalic_macroman/stylesheet.css';
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
-};
+// Other fonts
+import 'typeface-source-sans-pro';
+import 'typeface-space-mono';
 
-export default TemplateWrapper;
+class DefaultLayout extends React.Component {
+  render() {
+    const isHomepage = this.props.location.pathname == `/`;
+    const hasSidebar =
+      this.props.location.pathname.slice(0, 6) === `/docs/` ||
+      this.props.location.pathname.slice(0, 10) === `/tutorial/`;
+    const isSearchSource = hasSidebar;
+    const sidebarStyles = {
+      borderRight: `1px solid ${colors.ui.light}`,
+      backgroundColor: colors.ui.whisper,
+      boxShadow: `inset 0 4px 5px 0 ${hex2rgba(
+        colors.zoomdata,
+        presets.shadowKeyPenumbraOpacity,
+      )}, inset 0 1px 10px 0 ${hex2rgba(
+        colors.obsidian,
+        presets.shadowAmbientShadowOpacity,
+      )}, inset 0 2px 4px -1px ${hex2rgba(
+        colors.obsidian,
+        presets.shadowKeyUmbraOpacity,
+      )}`,
+      width: rhythm(10),
+      display: `none`,
+      position: `fixed`,
+      top: `calc(${presets.headerHeight} - 1px)`,
+      overflowY: `auto`,
+      height: `calc(100vh - ${presets.headerHeight} + 1px)`,
+      WebkitOverflowScrolling: `touch`,
+      '::-webkit-scrollbar': {
+        width: `6px`,
+        height: `6px`,
+      },
+      '::-webkit-scrollbar-thumb': {
+        background: colors.ui.bright,
+      },
+      '::-webkit-scrollbar-track': {
+        background: colors.ui.light,
+      },
+      [presets.Desktop]: {
+        width: rhythm(12),
+        padding: rhythm(1),
+      },
+    };
+
+    return (
+      <div>
+        <Helmet
+          defaultTitle={`Zoomdata Developer Zone`}
+          titleTemplate={`%s | Zoomdata DevZone`}
+        >
+          <meta name="twitter:site" content="@zoomdata" />
+          <meta name="og:type" content="website" />
+          <meta name="og:site_name" content="Zoomdata Developer Zone" />
+          <html lang="en" />
+        </Helmet>
+        <Navigation pathname={this.props.location.pathname} />
+        <div
+          className={hasSidebar ? `main-body has-sidebar` : `main-body`}
+          css={{
+            paddingTop: 0,
+            [presets.Tablet]: {
+              margin: `0 auto`,
+              paddingTop: isHomepage ? 0 : presets.headerHeight,
+            },
+          }}
+        >
+          {/* TODO Move this under docs/index.js once Gatsby supports multiple levels
+               of layouts */}
+          <div
+            css={{
+              ...sidebarStyles,
+              [presets.Tablet]: {
+                display:
+                  this.props.location.pathname.slice(0, 6) === `/docs/`
+                    ? `block`
+                    : `none`,
+              },
+            }}
+          >
+            <SidebarBody yaml={docsSidebar} />
+          </div>
+          {/* TODO Move this under docs/tutorial/index.js once Gatsby supports multiple levels
+               of layouts */}
+          <div
+            css={{
+              ...sidebarStyles,
+              [presets.Tablet]: {
+                display:
+                  this.props.location.pathname.slice(0, 10) === `/tutorial/`
+                    ? `block`
+                    : `none`,
+              },
+            }}
+          >
+            <SidebarBody yaml={tutorialSidebar} />
+          </div>
+          <div
+            css={{
+              [presets.Tablet]: {
+                paddingLeft: hasSidebar ? rhythm(10) : 0,
+              },
+              [presets.Desktop]: {
+                paddingLeft: hasSidebar ? rhythm(12) : 0,
+              },
+            }}
+            className={isSearchSource && `docSearch-content`}
+          >
+            {this.props.children()}
+          </div>
+        </div>
+        <MobileNavigation />
+      </div>
+    );
+  }
+}
+
+module.exports = DefaultLayout;

@@ -1,0 +1,46 @@
+- title: Custom Chart CLI
+  items:
+    - title: Getting Started
+      link: /docs/
+    - title: Custom Chart Examples
+      link: /docs/custom-chart-examples/
+- title: Core Concepts
+  items:
+    - title: Chart Components
+      link: /docs/chart-components/
+    - title: Libraries
+      link: /docs/chart-libraries/
+    - title: Query Variables
+      link: /docs/query-variables/
+- title: Guides
+  items:
+    - title: Extracting the Chart Data
+      link: /docs/extracting-chart-data/
+    - title: Adding Metrics to your Data Request
+      link: /docs/adding-metrics-data-request/
+    - title: Using Data Accessors
+      link: /docs/using-data-accessors/
+    - title: Creating your Own Chart Container
+      link: /docs/creating-own-chart-container/
+    - title: Adding the Radial Menu
+      link: /docs/adding-radial-menu/
+    - title: Adding Custom Options to the Radial Menu
+      link: /docs/adding-custom-options-radial-menu/
+    - title: Adding Tooltips
+      link: /docs/adding-tooltips/
+    - title: Emitting and Listening to Local Chart Events
+      link: /docs/emitting-listening-local-chart-events/
+    - title: Emitting and Listening to Cross Chart Events
+      link: /docs/emitting-listening-cross-chart-events/
+    - title: Getting Values of Constant Variables
+      link: /docs/getting-values-constant-variables/
+    - title: Listening to the No Data Event
+      link: /docs/listening-no-data-event/
+    - title: Listening to the Query Complete Event
+      link: /docs/listening-query-complete-event/
+- title: Reference
+  items:
+    - title: Custom Chart Controller Interface
+      link: /docs/controller-interface-reference/
+    - title: Zoomdata REST APIs
+      link: /docs/rest-api-reference/

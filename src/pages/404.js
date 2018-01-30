@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Container from '../components/container';
 
-const NotFoundPage = () => (
-  <div>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </div>
-)
+class FourOhFour extends React.Component {
+  render() {
+    return (
+      <Container>
+        <h1>Page not found</h1>
+      </Container>
+    );
+  }
+}
 
-export default NotFoundPage
+export default FourOhFour;
