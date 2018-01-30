@@ -53,7 +53,7 @@
     "typeface-space-mono": "0.0.54",
     "typography-breakpoint-constants": "^0.15.10",
     "typography-plugin-code": "^0.16.11",
-    "validator": "^9.2.0"
+    "validator": "^9.4.0"
   },
   "keywords": [
     "zoomdata"

@@ -1,15 +1,27 @@
 backend:
-  name: github
-  repo: jonavila/dev-zone
+  name: git-gateway
+  branch: master
 
-media_folder: static/assets
+publish_mode: editorial_workflow
+
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 
 collections:
-  - name: blog
-    label: Blog
-    folder: docs/blog
+  - name: "blog"
+    label: "Blog"
+    folder: "docs/blog/{{year}}-{{month}}-{{day}}-{{slug}}"
     create: true
+    slug: "{{slug}}"
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date", label: "Date", widget: "date", format: "YYYY-MM-DD" }
+      - { name: "author", label: "Author", widget: "string" }
+      - { name: "image", label: "Image", widget: "image", default: false, required: false }
+      - { name: "imageAuthor", label: "Image Author", widget: "string", default: false, required: false }
+      - { name: "imageAuthorLink", label: "Image Author Link", widget: "string", default: false, required: false }
+      - { name: "showImageInArticle", label: "Show Image in Article", widget: "boolean", default: false, required: false }
+      - { name: "canonicalLink", label: "Canonical Link", widget: "string", default: false, required: false }
+      - { name: "publishedAt", label: "Published At", widget: "string", default: false, required: false }
+      - { name: "excerpt", label: "Excerpt", widget: "text", default: false, required: false }
+      - { name: "draft", label: "Draft", widget: "boolean", default: false, required: false }
