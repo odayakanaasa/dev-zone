@@ -14,7 +14,7 @@ controller.menu.show({
 });
 ```
 
-To hide the menu:
+To hide the radial menu:
 
 ```javascript
 controller.menu.hide();
