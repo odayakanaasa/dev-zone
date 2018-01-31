@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Zoomdat Developer Zone`,
-    siteUrl: `https://mystifying-roentgen-e8c480.netlify.com/`,
+    siteUrl: `https://mystifying-roentgen-e8c480.netlify.com`,
     description: `Zoomdata Developer Zone`,
   },
   mapping: {
