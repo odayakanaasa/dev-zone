@@ -1,6 +1,6 @@
-# developer.zoomdata.com
+# https://mystifying-roentgen-e8c480.netlify.com/
 
-The main Gatsby site at developer.zoomdata.com
+The dev zone site at https://mystifying-roentgen-e8c480.netlify.com/
 
 Run locally with
 

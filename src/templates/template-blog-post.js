@@ -57,7 +57,7 @@ class BlogPostTemplate extends React.Component {
             <title>{post.frontmatter.title}</title>
             <link
               rel="author"
-              href={`https://developer.zoomdata.com${
+              href={`https://mystifying-roentgen-e8c480.netlify.com/${
                 post.frontmatter.author.fields.slug
               }`}
             />
@@ -76,7 +76,7 @@ class BlogPostTemplate extends React.Component {
             {post.frontmatter.image && (
               <meta
                 name="og:image"
-                content={`https://developer.zoomdata.com${
+                content={`https://mystifying-roentgen-e8c480.netlify.com/${
                   post.frontmatter.image.childImageSharp.resize.src
                 }`}
               />
@@ -84,7 +84,7 @@ class BlogPostTemplate extends React.Component {
             {post.frontmatter.image && (
               <meta
                 name="twitter:image"
-                content={`https://developer.zoomdata.com${
+                content={`https://mystifying-roentgen-e8c480.netlify.com/${
                   post.frontmatter.image.childImageSharp.resize.src
                 }`}
               />
