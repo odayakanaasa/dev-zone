@@ -273,12 +273,13 @@ class SearchForm extends Component {
     );
 
     // eslint-disable-next-line no-undef
-    // window.docsearch({
-    //   apiKey: ``,
-    //   indexName: `zoomdata-dev-zone`,
-    //   inputSelector: `#doc-search`,
-    //   debug: false,
-    // })
+    window.docsearch({
+      appId: 'A6E3DQ296D',
+      apiKey: `4786499adcf38396a9d31863e4379035`,
+      indexName: `devzone`,
+      inputSelector: `#doc-search`,
+      debug: false,
+    })
   }
 
   render() {

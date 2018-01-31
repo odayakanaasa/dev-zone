@@ -1,18 +1,20 @@
 backend:
-  name: git-gateway
-  branch: master
+  name: github
+  #branch: master
+  repo: jonavila/dev-zone
 
 publish_mode: editorial_workflow
 
-media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
-public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+media_folder: "static/images" # Media files will be stored in the repo under static/images/uploads
+#public_folder: "/images" # The src attribute for uploaded media will begin with /images/uploads
 
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "docs/blog/{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: "docs/blog"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    format: "frontmatter"
     fields:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "date", label: "Date", widget: "date", format: "YYYY-MM-DD" }
@@ -25,3 +27,4 @@ collections:
       - { name: "publishedAt", label: "Published At", widget: "string", default: false, required: false }
       - { name: "excerpt", label: "Excerpt", widget: "text", default: false, required: false }
       - { name: "draft", label: "Draft", widget: "boolean", default: false, required: false }
+      - { name: "body", label: "Body", widget: "markdown" }

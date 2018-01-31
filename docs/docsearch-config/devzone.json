@@ -1,0 +1,27 @@
+{
+  "index_name": "devzone",
+  "sitemap_urls": ["https://mystifying-roentgen-e8c480.netlify.com/sitemap.xml"],
+  "start_urls": ["https://mystifying-roentgen-e8c480.netlify.com/docs/", "https://mystifying-roentgen-e8c480.netlify.com/tutorial/"],
+  "stop_urls": [],
+  "selectors": {
+    "lvl0": {
+      "selector": "//a[contains(@class,'nav-link-active')]/preceding::h3[1]",
+      "type": "xpath",
+      "global": true,
+      "default_value": "Unsorted"
+    },
+    "lvl1": {
+      "selector": ".docSearch-content h1"
+    },
+    "lvl2": {
+      "selector": ".docSearch-content h2"
+    },
+    "lvl3": {
+      "selector": ".docSearch-content h3"
+    },
+    "text": {
+      "selector": ".docSearch-content p, .docSearch-content li"
+    }
+  },
+  "min_indexed_level": 1
+}
