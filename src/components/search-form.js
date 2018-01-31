@@ -15,9 +15,12 @@ css.insert(`
     left: ${rhythm(0.5)} !important;
     right: ${rhythm(0.5)} !important;
     min-width: calc(100vw - ${rhythm(1)}) !important;
-    max-width: calc(100vw - 2rem) !important;
+    max-width: calc(10vw - 2rem) !important;
     max-height: calc(100vh - 5rem) !important;
-    box-shadow: 0 3px 10px 0.05rem ${hex2rgba(colors.obsidian, 0.25)} !important;
+    box-shadow: 0 3px 10px 0.05rem ${hex2rgba(
+      colors.obsidian,
+      0.25,
+    )} !important;
   }
 
   /* .searchWrap to beat docsearch.css' !important */
@@ -250,7 +253,10 @@ class SearchForm extends Component {
 
   focusSearchInput(e) {
     if (e.key !== `s`) return;
-    if (document.activeElement === this.searchInput) return; // eslint-disable-line no-undef
+
+    // ignore this shortcut whenever an <input> has focus
+    if (document.activeElement instanceof window.HTMLInputElement) return; // eslint-disable-line no-undef
+
     e.preventDefault();
     this.searchInput.focus();
   }
@@ -266,6 +272,9 @@ class SearchForm extends Component {
     }
 
     // eslint-disable-next-line no-undef
+    window.addEventListener(`keydown`, this.focusSearchInput);
+
+    // eslint-disable-next-line no-undef
     window.addEventListener(
       `autocomplete:selected`,
       this.autocompleteSelected,
@@ -279,7 +288,12 @@ class SearchForm extends Component {
       indexName: `devzone`,
       inputSelector: `#doc-search`,
       debug: false,
-    })
+    });
+  }
+
+  componentWillUnmount() {
+    // eslint-disable-next-line no-undef
+    window.removeEventListener(`keydown`, this.focusSearchInput);
   }
 
   render() {
@@ -330,8 +344,8 @@ class SearchForm extends Component {
             },
           }}
           type="search"
-          placeholder="Search docs"
-          aria-label="Search docs"
+          placeholder="Search site"
+          aria-label="Search site"
           ref={input => {
             this.searchInput = input;
           }}
