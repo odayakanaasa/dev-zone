@@ -5,6 +5,16 @@
     - title: Part One
       link: /tutorial/part-one/
       items:
+        - title: Check Development Environment
+          link: /tutorial/part-one/#check-your-development-environment
+        - title: Install & Configure the Zoomdata Chart CLI
+          link: /tutorial/part-one/#install-and-configure-the-zoomdata-chart-cli
+        - title: Create a Blank Custom Chart
+          link: /tutorial/part-one/#create-a-blank-custom-chart
+        - title: Edit the Chart's Code
+          link: /tutorial/part-one/#edit-the-charts-code
+        - title: Preview the Chart
+          link: /tutorial/part-one/#preview-the-chart
     - title: Part Two
       link: /tutorial/part-two/
       items:

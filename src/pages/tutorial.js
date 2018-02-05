@@ -11,15 +11,18 @@ export default () => (
     </Helmet>
     <h1 css={{ marginTop: 0 }}>Custom Chart Tutorial</h1>
     <p>
-      Welcome to the custom chart tutorial. This tutorial consist of four parts
-      that'll walk you through the process of developing a new custom chart from
-      scratch.
+      👋 Hello! Welcome to the Zoomdata Custom Chart Tutorial. This tutorial consists of four parts that'll guide you
+      through the process of developing a new custom chart from scratch.
+    </p>
+    <p>
+      If you have some experience with Javascript and you want to learn about connecting your data to charts, you are in
+      the right place. No worries if you are not Zoomdata expert, we'll walk you through things step by step.
     </p>
 
     <ol>
       <li>
-        <Link to="/tutorial/part-one/">Part One</Link>
-        {` `}— Description of part one
+        <Link to="/tutorial/part-one/">Introduction to Custom Chart basics</Link>
+        {` `}— Configuring the chart CLI, creating a blank chart, editing chart code, and previewing the chart.
       </li>
       <li>
         <Link to="/tutorial/part-two/">Part Two</Link>. Description of part two

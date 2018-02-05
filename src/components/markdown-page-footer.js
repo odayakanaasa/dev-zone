@@ -1,33 +1,10 @@
 import React from 'react';
 import EditIcon from 'react-icons/lib/md/create';
-import CheckIcon from 'react-icons/lib/md/thumb-up';
-import CrossIcon from 'react-icons/lib/md/thumb-down';
-import { GraphQLClient } from 'graphql-request';
 
 import { rhythm, scale } from '../utils/typography';
 import presets, { colors } from '../utils/presets';
 
-const client = new GraphQLClient(
-  `https://api.graph.cool/relay/v1/cj8xuo77f0a3a0164y7jketkr`,
-);
-
-function sendReview(thumbsUp, relativePath) {
-  return client.request(`
-    mutation {
-      createReview(input: {thumbsUp: ${thumbsUp}, relativePath: "${relativePath}", clientMutationId: "1"}) {
-        review {
-          id
-        }
-      }
-    }
-  `);
-}
-
 export default class MarkdownPageFooter extends React.Component {
-  constructor() {
-    super();
-    this.state = { feedbackSubmitted: false };
-  }
   render() {
     return [
       <hr css={{ marginTop: rhythm(2) }} key="hr" />,
@@ -37,45 +14,9 @@ export default class MarkdownPageFooter extends React.Component {
         }}
         key="div"
       >
-        {this.state.feedbackSubmitted ? (
-          <span css={{ lineHeight: rhythm(2) }}>Thank you!</span>
-        ) : (
-          <span css={{ lineHeight: rhythm(2) }}>
-            Was this helpful?{` `}
-            <CheckIcon
-              onClick={() => {
-                sendReview(true, this.props.page.parent.relativePath);
-                this.setState({ feedbackSubmitted: true });
-              }}
-              css={{
-                color: colors.success,
-                fontSize: rhythm(1.3),
-                padding: rhythm(0.2),
-                position: `relative`,
-                top: -3,
-                marginLeft: rhythm(1 / 4),
-                cursor: `pointer`,
-              }}
-            />
-            {` `}
-            <CrossIcon
-              onClick={() => {
-                sendReview(false, this.props.page.parent.relativePath);
-                this.setState({ feedbackSubmitted: true });
-              }}
-              css={{
-                color: colors.warning,
-                fontSize: rhythm(1.3),
-                padding: rhythm(0.2),
-                cursor: `pointer`,
-              }}
-            />
-          </span>
-        )}
         <a
           css={{
             '&&': {
-              float: `right`,
               display: `block`,
               color: colors.gray.calm,
               fontSize: scale(-1 / 5).fontSize,
