@@ -55,8 +55,8 @@ class IndexRoute extends React.Component {
         </ol>
         <h2>Adding custom chart packages</h2>
         <p>
-          Running <code>zd-chart add {`<name> <filepath.zip>`} </code> adds the specified custom chart to the Zoomdata server.
-          There are{` `}
+          Running <code>zd-chart add {`<name> <filepath.zip>`} </code> adds the
+          specified custom chart to the Zoomdata server. There are{` `}
           <Link to="/docs/custom-chart-examples/">
             various custom chart examples
           </Link>

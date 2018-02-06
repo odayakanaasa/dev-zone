@@ -9,6 +9,7 @@ showImageInArticle: true
 canonicalLink: "https://www.zoomdata.com/blog/new-tools-available-custom-chart-development/"
 publishedAt: "Zoomdata"
 excerpt: "In Zoomdata version 2.6.3, Zoomdata introduced a new way to create custom charts: the Custom Chart Command Line Interface (CLI)..."
+tags: ["Custom Charts"]
 draft: false
 ---
 

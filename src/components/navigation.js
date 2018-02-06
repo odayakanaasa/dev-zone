@@ -41,21 +41,13 @@ const NavItem = ({ linkTo, children }) => (
 );
 
 export default ({ pathname }) => {
-  const isHomepage = pathname == `/`;
-  const isBlog = pathname == `/blog/`;
+  const isHomepage = pathname === `/`;
   let styles = {};
   if (isHomepage) {
     styles.backgroundColor = `rgba(255,255,255,0)`;
     styles.borderBottomColor = `transparent`;
     styles[presets.Tablet] = {
-      position: isHomepage || isBlog ? `absolute` : `fixed`,
-    };
-  } else if (isBlog) {
-    styles.backgroundColor = `#fff`;
-    styles[presets.Tablet] = {
-      borderBottomColor: `transparent`,
-      position: isHomepage || isBlog ? `absolute` : `fixed`,
-      backgroundColor: colors.ui.whisper,
+      position: isHomepage ? `absolute` : `fixed`,
     };
   }
   const socialIconsStyles = {
@@ -96,7 +88,7 @@ export default ({ pathname }) => {
         left: 0,
         right: 0,
         [presets.Tablet]: {
-          position: isHomepage || isBlog ? `absolute` : `fixed`,
+          position: isHomepage ? `absolute` : `fixed`,
         },
         ...styles,
       }}

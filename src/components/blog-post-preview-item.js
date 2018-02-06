@@ -116,6 +116,7 @@ export const blogPostPreviewFragment = graphql`
       excerpt
       title
       date(formatString: "MMMM Do YYYY")
+      tags
       author {
         id
         fields {

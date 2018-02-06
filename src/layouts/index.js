@@ -6,6 +6,7 @@ import MobileNavigation from '../components/navigation-mobile';
 import SidebarBody from '../components/sidebar-body';
 import tutorialSidebar from '../pages/docs/tutorial-links.yml';
 import docsSidebar from '../pages/docs/doc-links.yaml';
+import blogSidebar from '../pages/blog/blog-links.yaml';
 import { rhythm, scale } from '../utils/typography';
 import presets, { colors } from '../utils/presets';
 import hex2rgba from 'hex2rgba';
@@ -26,7 +27,8 @@ class DefaultLayout extends React.Component {
     const isHomepage = this.props.location.pathname == `/`;
     const hasSidebar =
       this.props.location.pathname.slice(0, 6) === `/docs/` ||
-      this.props.location.pathname.slice(0, 10) === `/tutorial/`;
+      this.props.location.pathname.slice(0, 10) === `/tutorial/` ||
+      this.props.location.pathname.slice(0, 6) === `/blog/`;
     const isSearchSource = hasSidebar;
     const sidebarStyles = {
       borderRight: `1px solid ${colors.ui.light}`,
@@ -115,6 +117,19 @@ class DefaultLayout extends React.Component {
             }}
           >
             <SidebarBody yaml={tutorialSidebar} />
+          </div>
+          <div
+            css={{
+              ...sidebarStyles,
+              [presets.Tablet]: {
+                display:
+                  this.props.location.pathname.slice(0, 6) === `/blog/`
+                    ? `block`
+                    : `none`,
+              },
+            }}
+          >
+            <SidebarBody yaml={blogSidebar} />
           </div>
           <div
             css={{
