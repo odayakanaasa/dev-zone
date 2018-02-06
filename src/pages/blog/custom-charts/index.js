@@ -1,4 +1,4 @@
-import BlogPostsCustomCharts from '../';
+import BlogPostsCustomCharts from '../../../templates/template-blog-page';
 
 export default BlogPostsCustomCharts;
 

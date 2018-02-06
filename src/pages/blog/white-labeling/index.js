@@ -1,4 +1,4 @@
-import BlogPostsWhiteLabeling from '../';
+import BlogPostsWhiteLabeling from '../../../templates/template-blog-page';
 
 export default BlogPostsWhiteLabeling;
 

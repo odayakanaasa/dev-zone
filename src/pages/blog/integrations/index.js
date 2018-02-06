@@ -1,4 +1,4 @@
-import BlogPostsIntegrations from '../';
+import BlogPostsIntegrations from '../../../templates/template-blog-page';
 
 export default BlogPostsIntegrations;
 

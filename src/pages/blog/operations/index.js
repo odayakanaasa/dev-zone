@@ -1,4 +1,4 @@
-import BlogPostsOperations from '../';
+import BlogPostsOperations from '../../../templates/template-blog-page';
 
 export default BlogPostsOperations;
 
