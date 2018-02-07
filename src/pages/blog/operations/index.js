@@ -1,13 +1,13 @@
-import BlogPostsIndex from '../../templates/template-blog-page';
+import BlogPostsOperations from '../../../templates/template-blog-page';
 
-export default BlogPostsIndex;
+export default BlogPostsOperations;
 
 export const pageQuery = graphql`
-  query BlogPostsIndexQuery {
+  query BlogPostsOperationsQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: {
-        frontmatter: { draft: { ne: true } }
+        frontmatter: { tags: { in: ["Operations"] }, draft: { ne: true } }
         fileAbsolutePath: { regex: "/docs.blog/" }
       }
     ) {

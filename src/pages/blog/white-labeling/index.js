@@ -1,13 +1,13 @@
-import BlogPostsIndex from '../../templates/template-blog-page';
+import BlogPostsWhiteLabeling from '../../../templates/template-blog-page';
 
-export default BlogPostsIndex;
+export default BlogPostsWhiteLabeling;
 
 export const pageQuery = graphql`
-  query BlogPostsIndexQuery {
+  query BlogPostsWhiteLabelingQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: {
-        frontmatter: { draft: { ne: true } }
+        frontmatter: { tags: { in: ["White Labeling"] }, draft: { ne: true } }
         fileAbsolutePath: { regex: "/docs.blog/" }
       }
     ) {

@@ -4,6 +4,7 @@ date: "2017-10-01"
 author: "Mike Werling"
 publishedAt: "Zoomdata"
 excerpt: "The Zoomdata Web application enables users to visualize and analyze billions of rows from a wide range of data sources..."
+tags: ["Integrations"]
 draft: false
 ---
 

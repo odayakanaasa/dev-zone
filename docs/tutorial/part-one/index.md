@@ -1,6 +1,5 @@
 ---
 title: Custom Chart Tutorial Part One
-typora-copy-images-to: ./
 ---
 
 Welcome to part one of the custom chart tutorial. In this part of the tutorial, you'll be introduced the Custom Chart CLI,

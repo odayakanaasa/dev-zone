@@ -37,6 +37,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     package
                   }
                   frontmatter {
+                    tags
                     title
                     draft
                     canonicalLink

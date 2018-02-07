@@ -1,0 +1,12 @@
+- title: Categories
+  items:
+    - title: All
+      link: /blog/
+    - title: Custom Charts
+      link: /blog/custom-charts/
+    - title: Integrations
+      link: /blog/integrations/
+    - title: Operations
+      link: /blog/operations/
+    - title: White Labeling
+      link: /blog/white-labeling/

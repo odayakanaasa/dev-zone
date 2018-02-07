@@ -9,6 +9,7 @@ showImageInArticle: true
 canonicalLink: "https://www.zoomdata.com/blog/how-make-use-zoomdata-activity-logs/"
 publishedAt: "Zoomdata"
 excerpt: "When working with security conscious customers, the Zoomdata Customer Success team is often confronted with the question of how to best audit user activity..."
+tags: ["Operations"]
 draft: false
 ---
 
